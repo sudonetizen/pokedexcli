@@ -26,6 +26,16 @@ var pokedex_commands = map[string]cliCommand{
         description: "Displays a help message",
         callback: commandHelp,
     },
+    "map": {
+        name: "map",
+        description: "Lists location areas",
+        callback: commandMap,
+    },
+    "mapb" : {
+        name: "mapb",
+        description: "Lists locations areas in reverse",
+        callback: commandMapb,
+    },
 }
 
 

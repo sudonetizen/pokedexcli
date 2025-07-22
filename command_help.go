@@ -3,6 +3,13 @@ package main
 import "fmt"
 
 func commandHelp() error {
-    fmt.Println("Welcome to the Pokedex!\nUsage:\n\nhelp: Displays a help message\nexit: Exit the Pokedex")
+    text :=`Welcome to the Pokedex!
+Usage:
+
+help: Displays a help message
+exit: Exit the Pokedex
+map: Lists location areas
+mapb: Lists location areas in reverse`
+    fmt.Println(text)
     return nil
 }
