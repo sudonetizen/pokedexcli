@@ -41,6 +41,21 @@ var pokedex_commands = map[string]cliCommand{
         description: "Information about the location area",
         callback: commandExplore,
     },
+    "catch": {
+        name: "catch",
+        description: "Catch Pokemon",
+        callback: commandCatch,
+    },
+    "inspect": {
+        name: "inspect",
+        description: "Inspect available pokemon",
+        callback: commandInspect,
+    },
+    "pokedex": {
+        name: "pokedex",
+        description: "Lists caught pokemons",
+        callback: commandPokedex,
+    },
 }
 
 
@@ -67,7 +82,7 @@ func loopRepl() {
             } else if len(inputStrings) == 2 {
                 value.callback(inputStrings[1])
             }
-        }
+        } else {fmt.Println("Unknown command")}
 
     }
 }
