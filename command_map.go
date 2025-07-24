@@ -28,7 +28,7 @@ type pokeList struct {
 
 var loCache *pokecache.Cache = pokecache.NewCache(pokecache.Interval)
 
-func commandMap() error {
+func commandMap(args ...string) error {
 
     url := "https://pokeapi.co/api/v2/location-area/?offset=" + strconv.Itoa(*offset) + "&limit=20"
 
@@ -67,7 +67,7 @@ func commandMap() error {
     return nil
 }
 
-func commandMapb() error {
+func commandMapb(args ...string) error {
     if *offset >= 40 {*offset -= 40}
     if *pager >= 2 {*pager -= 2}
     commandMap()    

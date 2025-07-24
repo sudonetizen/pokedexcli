@@ -11,7 +11,7 @@ import (
 type cliCommand struct {
     name string 
     description string
-    callback func() error
+    callback func(args ...string) error
 }
 
 
@@ -31,10 +31,15 @@ var pokedex_commands = map[string]cliCommand{
         description: "Lists location areas",
         callback: commandMap,
     },
-    "mapb" : {
+    "mapb": {
         name: "mapb",
         description: "Lists locations areas in reverse",
         callback: commandMapb,
+    },
+    "explore": {
+        name: "explore",
+        description: "Information about the location area",
+        callback: commandExplore,
     },
 }
 
@@ -55,10 +60,13 @@ func loopRepl() {
         if len(inputStrings) == 0 {continue}
     
         value, boolean := pokedex_commands[inputStrings[0]]
+
         if boolean {
-           value.callback()
-        } else {
-            fmt.Println("Unknown command")
+            if len(inputStrings) == 1 {
+                value.callback()
+            } else if len(inputStrings) == 2 {
+                value.callback(inputStrings[1])
+            }
         }
 
     }
